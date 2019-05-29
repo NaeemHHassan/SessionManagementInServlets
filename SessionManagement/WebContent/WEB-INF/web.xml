@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>ServletsBasics</display-name>
+	<servlet>
+		<servlet-name>Source Servlet</servlet-name>
+		<servlet-class>com.softechsol.servlets.SourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Source Servlet</servlet-name>
+		<url-pattern>/sourceServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Target Servlet</servlet-name>
+		<servlet-class>com.softechsol.servlets.TargetServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Target Servlet</servlet-name>
+		<url-pattern>/targetServlet</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>MyResources</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>FILE</realm-name>
+	</login-config>
+</web-app>
